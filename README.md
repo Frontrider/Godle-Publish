@@ -58,4 +58,4 @@ The "legacy" plugin application seems to break the `godlePublish` block, I can't
 <br/>
 
 
-HUGE thanks for the work of @fenix-hub for his work on creating a somewhat functional Open API specification for the godot asset library.
+HUGE thanks for the work of @fenix-hub for his work on creating a functional Open API specification for the godot asset library.
