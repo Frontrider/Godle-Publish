@@ -43,12 +43,8 @@ open class GodotAddonPublish @Inject constructor(@Internal val artifact: AddonAr
         if (login.token == null) {
             error("Failed to authenticate with the Godot Asset Library, server did not return a token. Check your credentials, and try again!")
         }
-
         val assetsApi = AssetsEditApi()
-        val assetDetails = AuthenticatedAssetDetails().apply {
-            if (artifact.id.isPresent) {
-                assetId = artifact.id.get()
-            }
+        val authenticatedAssetDetails = AuthenticatedAssetDetails().apply {
             categoryId = "Tools"
             category = "5"
 
@@ -79,6 +75,11 @@ open class GodotAddonPublish @Inject constructor(@Internal val artifact: AddonAr
             title = artifact.title.get()
             iconUrl = artifact.iconUrl.get()
         }
-        assetsApi.assetPost(assetDetails)
+        //If there is an id, then we assume that it is an update.
+        if (artifact.id.isPresent) {
+            AssetsEditApi().assetIdPost(artifact.id.get(), authenticatedAssetDetails)
+        } else {
+            assetsApi.assetPost(authenticatedAssetDetails)
+        }
     }
 }

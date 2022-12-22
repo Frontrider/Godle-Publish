@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "io.github.frontrider"
-version = "0.2.0"
+version = "0.2.1"
 
 allprojects {
     tasks.withType(Javadoc::class.java).all { enabled = false }

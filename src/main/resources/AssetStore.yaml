@@ -235,7 +235,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AssetDetails"
+              $ref: "#/components/schemas/AuthenticatedAssetDetails"
 
       responses:
         200:
@@ -357,7 +357,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/AssetDetails"
+              $ref: "#/components/schemas/AuthenticatedAssetDetails"
 
       responses:
         200:
