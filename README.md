@@ -11,7 +11,7 @@ Things that don't work:
 
 Godot has no competitive tooling for addon publishing, you must go through the UI, and you can't store that configuration yourself.
 
-This combined with [Godle](https://plugins.gradle.org/plugin/io.github.frontrider.godle), it provides a full stack for setting up everything for addon development.
+This combined with [Godle](https://plugins.gradle.org/plugin/io.github.frontrider.godle), provides a full stack for setting up everything for addon development.
 
 # Example from one of my own addons
 
