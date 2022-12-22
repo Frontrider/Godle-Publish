@@ -11,7 +11,7 @@ Things that don't work:
 
 Godot has no competitive tooling for addon publishing, you must go through the UI, and you can't store that configuration yourself.
 
-This combined with [Godle](https://plugins.gradle.org/plugin/io.github.frontrider.godle), it provides a full stack for setting up everything for addon development.
+This combined with [Godle](https://plugins.gradle.org/plugin/io.github.frontrider.godle), provides a full stack for setting up everything for addon development.
 
 # Example from one of my own addons
 
@@ -58,4 +58,4 @@ The "legacy" plugin application seems to break the `godlePublish` block, I can't
 <br/>
 
 
-HUGE thanks for the work of @fenix-hub for his work on creating a somewhat functional Open API specification for the godot asset library.
+HUGE thanks for the work of @fenix-hub for his work on creating a functional Open API specification for the godot asset library.
