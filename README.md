@@ -28,7 +28,7 @@ val godotPassword:String by project
 
 godlePublish{
     create("scene browser"){
-        //set the id only if you have one.
+        //set the id only if you have one already.
         id.set("1070")
         description = """
             Lets you view scenes inside the folder "assets/components", in a list, then add them to your current scene when you need it to make level editing easier. (not limited to levels alone, but that is the primary intention of the addon)
@@ -50,6 +50,8 @@ godlePublish{
     }
 }
 ```
+Run the `godleAddonPublish` task to publish the addon.
+
 The "legacy" plugin application seems to break the `godlePublish` block, I can't fix it.
 
 <br/>
@@ -57,6 +59,6 @@ The "legacy" plugin application seems to break the `godlePublish` block, I can't
 <br/>
 <br/>
 
-This plugin will only be at 1.0 when Godot gets its new assetstore.
+This plugin will only be at 1.0 when Godot gets its new assetstore. Because of this, the configuration is not finalized, but works for the current version of the asset library.
 
 HUGE thanks for the work of @fenix-hub for his work on creating a functional Open API specification for the godot asset library.
