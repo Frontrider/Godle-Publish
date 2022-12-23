@@ -57,5 +57,6 @@ The "legacy" plugin application seems to break the `godlePublish` block, I can't
 <br/>
 <br/>
 
+This plugin will only be at 1.0 when Godot gets its new assetstore.
 
 HUGE thanks for the work of @fenix-hub for his work on creating a functional Open API specification for the godot asset library.

@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "io.github.frontrider"
-version = "0.2.1"
+version = "0.3.0"
 
 allprojects {
     tasks.withType(Javadoc::class.java).all { enabled = false }
@@ -115,7 +115,7 @@ pluginBundle {
     vcsUrl = "https://github.com/Frontrider/GodlePublish"
     website = vcsUrl
 
-    tags = listOf("game development", "godot")
+    tags = listOf("game development", "godot","publishing")
 }
 
 gradlePlugin {

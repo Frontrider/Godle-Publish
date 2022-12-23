@@ -2,6 +2,7 @@ package io.github.frontrider.godle.publish
 
 import godot.assets.api.AssetsEditApi
 import godot.assets.api.AuthApi
+import godot.assets.model.AssetGetRequest
 import godot.assets.model.AuthenticatedAssetDetails
 import godot.assets.model.UsernamePassword
 import io.github.frontrider.godle.publish.dsl.AddonArtifact
@@ -12,6 +13,7 @@ import javax.inject.Inject
 
 /**
  * Publishes the project's addon to the store.
+ *
  * */
 open class GodotAddonPublish @Inject constructor(@Internal val artifact: AddonArtifact) : DefaultTask() {
 
@@ -39,14 +41,13 @@ open class GodotAddonPublish @Inject constructor(@Internal val artifact: AddonAr
             password = credentials.password
         })
 
-
         if (login.token == null) {
             error("Failed to authenticate with the Godot Asset Library, server did not return a token. Check your credentials, and try again!")
         }
         val assetsApi = AssetsEditApi()
-        val authenticatedAssetDetails = AuthenticatedAssetDetails().apply {
-            categoryId = "Tools"
-            category = "5"
+        val authenticatedAssetDetails = AssetGetRequest().apply {
+            //this should match up properly for now.
+            category = (artifact.category.ordinal+1).toString()
 
             description = artifact.description
             cost = artifact.license.licenseId
@@ -59,7 +60,7 @@ open class GodotAddonPublish @Inject constructor(@Internal val artifact: AddonAr
                 downloadCommit = artifact.downloadCommit.get()
             }
 
-            downloadProvider = "GitHub"
+            downloadProvider = artifact.getDownloadProvider()
             type = artifact.type.typeName
             version = artifact.versionString.get()
             versionString = artifact.versionString.get()
@@ -69,8 +70,8 @@ open class GodotAddonPublish @Inject constructor(@Internal val artifact: AddonAr
             browseUrl = artifact.vcsUrl.get()
             issuesUrl = artifact.issuesUrl.get()
             iconUrl = artifact.issuesUrl.get()
-            godotVersion = artifact.godotVersion.version
-            supportLevel = artifact.supportLevel
+            godotVersion = artifact.godotVersion.get()
+            supportLevel = artifact.getSupportLevel()
             isArchived = artifact.isArchived
             title = artifact.title.get()
             iconUrl = artifact.iconUrl.get()
