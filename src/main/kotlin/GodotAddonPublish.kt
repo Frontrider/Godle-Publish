@@ -3,7 +3,6 @@ package io.github.frontrider.godle.publish
 import godot.assets.api.AssetsEditApi
 import godot.assets.api.AuthApi
 import godot.assets.model.AssetGetRequest
-import godot.assets.model.AuthenticatedAssetDetails
 import godot.assets.model.UsernamePassword
 import io.github.frontrider.godle.publish.dsl.AddonArtifact
 import org.gradle.api.DefaultTask
@@ -13,7 +12,6 @@ import javax.inject.Inject
 
 /**
  * Publishes the project's addon to the store.
- *
  * */
 open class GodotAddonPublish @Inject constructor(@Internal val artifact: AddonArtifact) : DefaultTask() {
 

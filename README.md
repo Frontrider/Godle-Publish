@@ -28,7 +28,6 @@ val godotPassword:String by project
 
 godlePublish{
     create("scene browser"){
-        //set the id only if you have one already.
         id.set("1070")
         description = """
             Lets you view scenes inside the folder "assets/components", in a list, then add them to your current scene when you need it to make level editing easier. (not limited to levels alone, but that is the primary intention of the addon)
@@ -38,8 +37,10 @@ godlePublish{
             I recommend "snappy" to provide smooth vertex snapping with this to get a solid level editing experience.
             https://github.com/jgillich/godot-snappy 
         """.trimIndent()
-        supportLevel = SupportLevelEnum.COMMUNITY
-        godotVersion = CompatVersion.`3_5`
+        supportLevel.set("community")
+        downloadProvider.set("GitHub")
+        category = AssetCategories.Tools
+        godotVersion.set("3.5")
         vcsUrl.set("https://github.com/Frontrider/Godot-Scene-Browser/")
         iconUrl.set("https://raw.githubusercontent.com/Frontrider/Godot-Scene-Browser/${currentCommitHash()}/components.png")
 
