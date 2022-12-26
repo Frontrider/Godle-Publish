@@ -2,10 +2,8 @@ package io.github.frontrider.godle.publish.dsl
 
 import godle.license.License
 import godle.license.MIT
-import godot.assets.model.AssetGetRequest
 import godot.assets.model.AssetGetRequest.DownloadProviderEnum
 import godot.assets.model.AssetGetRequest.SupportLevelEnum
-import godot.assets.model.AuthenticatedAssetDetails
 import org.eclipse.jgit.api.Git
 import org.eclipse.jgit.internal.storage.file.FileRepository
 import org.eclipse.jgit.lib.Repository
@@ -37,6 +35,7 @@ fun AddonArtifact.currentCommitHash(): String {
     return latestCommit.name
 }
 
+@Suppress("Unused")
 open class AddonArtifact @Inject constructor(val name: String, objectFactory: ObjectFactory, val project: Project) {
 
     //IF set then the plugin will try to update an existing asset(?)
@@ -46,8 +45,6 @@ open class AddonArtifact @Inject constructor(val name: String, objectFactory: Ob
     var category = AssetCategories.Tools
     var downloadProvider = objectFactory.property(String::class.java)
     var type = AddonType.ADDON
-
-    var root = objectFactory.directoryProperty().set(project.rootDir)
 
     //the download commit by default is always set to the last commit.
     var downloadCommit = objectFactory.property(String::class.java).convention(Providers.changing {
@@ -76,6 +73,7 @@ open class AddonArtifact @Inject constructor(val name: String, objectFactory: Ob
 
     var isArchived = false
     val credentials = Credentials()
+
     fun credentials(action: Action<in Credentials>) {
         action.execute(credentials)
     }

@@ -11,7 +11,7 @@ plugins {
 }
 
 group = "io.github.frontrider"
-version = "0.3.1"
+version = "0.3.2"
 
 allprojects {
     tasks.withType(Javadoc::class.java).all { enabled = false }
@@ -30,7 +30,7 @@ tasks.test {
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "11"
 }
 
 
@@ -205,7 +205,7 @@ val generateLicenseData= tasks.create("generateLicenseData") {
                 """
             package godle.license
             
-            class License(
+            data class License(
                 var reference: String,
                 var isDeprecatedLicenseId: Boolean,
                 var detailsUrl: String,
