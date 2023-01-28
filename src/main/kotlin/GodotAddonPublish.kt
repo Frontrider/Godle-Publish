@@ -45,7 +45,7 @@ open class GodotAddonPublish @Inject constructor(@Internal val artifact: AddonAr
         val assetsApi = AssetsEditApi()
         val authenticatedAssetDetails = AssetGetRequest().apply {
             //this should match up properly for now.
-            category = (artifact.category.ordinal+1).toString()
+            categoryId = (artifact.category.ordinal+1).toString()
 
             description = artifact.description
             cost = artifact.license.licenseId
